@@ -2,6 +2,8 @@ package rc.noteit.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.text.DateFormat;
@@ -12,6 +14,8 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 public class Note {
     @Id
     private UUID id;
@@ -40,34 +44,5 @@ public class Note {
         if (id != null) {
             this.id = UUID.fromString(id);
         }
-    }
-
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public Notebook getNotebook() {
-        return notebook;
-    }
-
-    public String getNotebookId() {
-        return this.notebook.getId().toString();
-    }
-
-    public Date getLastModifiedOn() {
-        return lastModifiedOn;
-    }
-
-    public void setLastModifiedOn(Date lastModifiedOn) {
-        this.lastModifiedOn = lastModifiedOn;
     }
 }

@@ -1,6 +1,8 @@
 package rc.noteit.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 public class Notebook {
     @Id
     private UUID id;
@@ -35,22 +39,4 @@ public class Notebook {
         }
         this.name = name;
     }
-
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<Note> getNotes() {
-        return notes;
-    }
-
-    public int getNbOfNotes() {
-        return this.notes.size();
-    }
-
 }
